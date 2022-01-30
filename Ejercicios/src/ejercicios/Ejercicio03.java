@@ -46,16 +46,24 @@ public class Ejercicio03 {
                             nombre, calificacion);
                     i = i + 1;
                 }
-                System.out.printf("%s\n", "Gracias por usar el sistema");
+                
 
             } catch (InputMismatchException inputMismatchException) {
                 System.out.printf("Existe un error de tipo %s\n",
                         inputMismatchException);
                 continua = true;
-            } catch (Exception e) {
+                entrada.nextLine();
+            } catch (ArithmeticException arithmeticException) {
+                System.out.printf("Existe un error de tipo %s\n",
+                        arithmeticException);
+                continua = true;
+                entrada.nextLine();
+            }catch (Exception e) {
                 System.out.printf("Algo va mal. %s\n", e);
                 continua = true;
-            }
+                entrada.nextLine();
+            } 
         } while (continua);
+        System.out.printf("%s\n", "Gracias por usar el sistema");
     }
 }

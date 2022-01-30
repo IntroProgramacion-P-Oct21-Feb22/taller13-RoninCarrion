@@ -37,6 +37,9 @@ public class Ejercicio01 {
 
             System.out.printf("Existe un error de tipo %s\n",
                     inputMismatchException);
+        } catch (ArithmeticException arithmeticException){
+            System.out.printf("Existe un error de tipo %s\n"
+                    , arithmeticException);
         }
         System.out.println("Fin del programa");
     }

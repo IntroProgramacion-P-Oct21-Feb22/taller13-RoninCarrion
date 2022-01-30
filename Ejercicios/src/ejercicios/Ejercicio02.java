@@ -16,15 +16,15 @@ public class Ejercicio02 {
 
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
-        boolean continua;
+        boolean stop;
         double suma = 0;
         int i = 1;
         do {
             try {
-                continua = false;
+                stop = false;
                 double calificacion;
                 double promedio;
-                
+
                 int numeroCalificaciones = 4;
                 while (i <= 4) {
                     System.out.println("Ingrese calificación: ");
@@ -41,11 +41,18 @@ public class Ejercicio02 {
             } catch (InputMismatchException inputMismatchException) {
                 System.out.printf("Existe un error de tipo %s\n",
                         inputMismatchException);
-                continua = true;
+                stop = true;
+                entrada.nextLine();
+            } catch (ArithmeticException arithmeticException) {
+                System.out.printf("Existe un error de tipo %s\n",
+                        arithmeticException);
+                stop = true;
+                entrada.nextLine();
             } catch (Exception e) {
                 System.out.printf("Algo va mal. %s\n", e);
-                continua = true;
+                stop = true;
+                entrada.nextLine();
             }
-        } while (continua);
+        } while (stop);
     }
 }

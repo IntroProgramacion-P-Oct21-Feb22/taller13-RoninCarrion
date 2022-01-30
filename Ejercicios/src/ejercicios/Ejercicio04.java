@@ -25,12 +25,14 @@ public class Ejercicio04 {
         boolean stop;
         do {
             stop = false;
+            
             try {
                 while (i <= 4) {
                     System.out.printf("Datos para usuario %d\n", i);
 
                     System.out.println("Cuantos sueldos quiere agregar al arreglo");
                     numeroDatosArreglo = entrada.nextInt();
+                    
                     if (numeroDatosArreglo < 0 || numeroDatosArreglo > 5) {
                         throw new Exception("Número de sueldos a ingresar fuera de rango");
                     }
@@ -43,6 +45,7 @@ public class Ejercicio04 {
                             System.out.printf("agregue sueldo %d para usuario %d\n",
                                     j, i);
                             sueldo = entrada.nextDouble();
+                            
                             if (sueldo < 0 || sueldo > 1000) {
                                 throw new Exception("Cantidad de sueldo ingreada inválida");
                             }
@@ -62,9 +65,16 @@ public class Ejercicio04 {
                 System.out.printf("Existe un error de tipo %s\n",
                         inputMismatchException);
                 stop = true;
-            } catch (Exception e) {
+                entrada.nextLine();
+            } catch (ArithmeticException arithmeticException) {
+                System.out.printf("Existe un error de tipo %s\n",
+                        arithmeticException);
+                stop = true;
+                entrada.nextLine();
+            }catch (Exception e) {
                 System.out.printf("Algo ha fallado. %s\n", e);
                 stop = true;
+                entrada.nextLine();
             }
         } while (stop);
     }
